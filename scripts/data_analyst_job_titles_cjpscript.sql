@@ -86,6 +86,20 @@ WHERE LOWER(title) NOT LIKE LOWER('%Analyst%') AND LOWER(title)NOT LIKE LOWER('%
 
 -- **BONUS:**
 -- You want to understand which jobs requiring SQL are hard to fill. Find the number of jobs by industry (domain) that require SQL and have been posted longer than 3 weeks. 
---  - Disregard any postings where the domain is NULL. 
+--619 jobs
+
+--  - Disregard any postings where the domain is NULL.
+-- added distinct, 26 companies
 --  - Order your results so that the domain with the greatest number of `hard to fill` jobs is at the top. 
 --   - Which three industries are in the top 4 on this list? How many jobs have been listed for more than 3 weeks for each of the top 4?
+
+SELECT COUNT(DISTINCT domain) AS count_domain, COUNT(skill) AS count_sqlskill
+FROM data_analyst_jobs
+WHERE skill LIKE('%SQL%') AND days_since_posting > '21';
+
+
+
+
+
+
+
